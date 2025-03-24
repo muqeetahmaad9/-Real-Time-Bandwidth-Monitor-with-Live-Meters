@@ -1,0 +1,37 @@
+
+---
+
+### **📜 2. `app.py` (Main Python Script)**  
+
+```python
+from flask import Flask, jsonify, render_template
+import psutil
+import threading
+import time
+import webbrowser
+
+app = Flask(__name__)
+
+def get_network_speed():
+    net1 = psutil.net_io_counters()
+    time.sleep(1)
+    net2 = psutil.net_io_counters()
+    return {
+        "download": round((net2.bytes_recv - net1.bytes_recv) / 1024, 2),
+        "upload": round((net2.bytes_sent - net1.bytes_sent) / 1024, 2)
+    }
+
+@app.route("/data")
+def data():
+    return jsonify(get_network_speed())
+
+@app.route("/")
+def home():
+    return render_template("index.html")
+
+def open_browser():
+    webbrowser.open("http://127.0.0.1:5000")
+
+if __name__ == "__main__":
+    threading.Timer(1.25, open_browser).start()
+    app.run(debug=True)
