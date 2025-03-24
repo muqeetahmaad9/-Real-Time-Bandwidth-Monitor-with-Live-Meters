@@ -16,7 +16,8 @@
 
 ## 📸 UI Preview  
 🚀 **Modern UI with animated meters!**  
-(Insert screenshot here)
+(![image](https://github.com/user-attachments/assets/696aa9fd-2348-49df-a061-4ca5385fca47)
+)
 
 ## 🛠 Installation & Setup  
 ```bash
@@ -31,4 +32,4 @@ pip install flask psutil
 
 # Run the app
 python app.py
-![image](https://github.com/user-attachments/assets/223ac156-b63b-4ac8-bfc2-c0bd4c06b347)
+
